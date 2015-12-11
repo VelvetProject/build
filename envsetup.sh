@@ -672,6 +672,7 @@ function lunch()
     export TARGET_PRODUCT=$(get_build_var TARGET_PRODUCT)
     export TARGET_BUILD_VARIANT=$(get_build_var TARGET_BUILD_VARIANT)
     export TARGET_PLATFORM_VERSION=$(get_build_var TARGET_PLATFORM_VERSION)
+    export TARGET_ARCH=$(gettargetarch)
     export TARGET_BUILD_TYPE=release
 
     echo
