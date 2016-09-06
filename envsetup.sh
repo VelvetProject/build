@@ -599,7 +599,7 @@ function breakfast()
         else
             # This is probably just the target model name
             if [ -z "$variant" ]; then
-                variant="userdebug"
+                variant="user"
             fi
             lunch velvet_$target-$variant
         fi
