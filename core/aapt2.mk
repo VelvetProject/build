@@ -34,7 +34,7 @@ ifneq ($(my_generated_res_dirs),)
 my_generated_resources_flata := $(my_compiled_res_base_dir)/gen_res.flata
 $(my_generated_resources_flata): PRIVATE_SOURCE_RES_DIRS := $(my_generated_res_dirs)
 $(my_generated_resources_flata) : $(my_generated_res_dirs_deps)
-	@echo "AAPT2 compile $@ <- $(PRIVATE_SOURCE_RES_DIRS)"
+	@echo -e ${CL_YLW}"AAPT2 compile"${CL_RST}" $$@ <- $(PRIVATE_SOURCE_RES_DIRS)"
 	$(call aapt2-compile-resource-dirs)
 
 my_generated_resources_flata += $(my_generated_resources_flata)
