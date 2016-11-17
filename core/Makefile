@@ -2657,7 +2657,23 @@ CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(TARGET_PRODUCT)-$(PLATFORM_VERSION)-$(
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
+
+	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) > $(CUSTOM_TARGET_PACKAGE).md5sum
+	@echo -e ""
+	@echo -e ${CL_BLU}"                 _           _          "
+	@echo -e "                | |         | |         "
+	@echo -e "      __   _____| |_   _____| |_        "
+	@echo -e "      \ \ / / _ \ \ \ / / _ \ __|       "
+	@echo -e "       \ V /  __/ |\ V /  __/ |_        "
+	@echo -e "        \_/ \___|_| \_/ \___|\__|       "
+	@echo -e ${CL_RED}"========================================"
+	@echo -e "ZIP   : $(CUSTOM_TARGET_PACKAGE)"
+	@echo -e "SIZE  : "`ls -hal $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 5`
+	@echo -e "MD5   : "`cat $(CUSTOM_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`
+	@echo -e "========================================"${CL_RST}
+
 bacon: otapackage
+
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) > $(CUSTOM_TARGET_PACKAGE).md5sum
 	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)"
