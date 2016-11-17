@@ -680,9 +680,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # Dump fingerprints
   #script.Print("Target: %s" % CalculateFingerprint(
   #    oem_props, oem_dict, OPTIONS.info_dict))
-  script.Print("********************")
-  script.Print("**   Velvet ROM   **")
-  script.Print("********************")
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
@@ -708,6 +705,22 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # by the recovery program.
   if "selinux_fc" in OPTIONS.info_dict:
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
+
+    build = GetBuildProp("ro.build.id", OPTIONS.info_dict)
+    date = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+    model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
+
+    script.Print("                     _           _              ");
+    script.Print("                    | |         | |             ");
+    script.Print("          __   _____| |_   _____| |_            ");
+    script.Print("          \ \ / / _ \ \ \ / / _ \ __|           ");
+    script.Print("           \ V /  __/ |\ V /  __/ |_            ");
+    script.Print("            \_/ \___|_| \_/ \___|\__|           ");
+    script.Print("************************************************");
+    script.Print("  Device        : %s"%(model));
+    script.Print("  Build number  : %s"%(build));
+    script.Print("  Build date    : %s"%(date));
+    script.Print("************************************************");
 
   recovery_mount_options = OPTIONS.info_dict.get("recovery_mount_options")
 
