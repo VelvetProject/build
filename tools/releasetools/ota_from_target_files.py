@@ -657,17 +657,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     date = GetBuildProp("ro.build.date", OPTIONS.info_dict)
     model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
 
-    script.Print("                     _           _             ");
-    script.Print("                    | |         | |            ");
-    script.Print("          __   _____| |_   _____| |_           ");
-    script.Print("          \ \ / / _ \ \ \ / / _ \ __|          ");
-    script.Print("           \ V /  __/ |\ V /  __/ |_           ");
-    script.Print("            \_/ \___|_| \_/ \___|\__|          ");
-    script.Print("***********************************************");
-    script.Print("      Device        : %s"%(model));
-    script.Print("      Build number  : %s"%(build));
-    script.Print("      Build date    : %s"%(date));
-    script.Print("***********************************************");
+    script.Print("                     _           _              ");
+    script.Print("                    | |         | |             ");
+    script.Print("          __   _____| |_   _____| |_            ");
+    script.Print("          \ \ / / _ \ \ \ / / _ \ __|           ");
+    script.Print("           \ V /  __/ |\ V /  __/ |_            ");
+    script.Print("            \_/ \___|_| \_/ \___|\__|           ");
+    script.Print("************************************************");
+    script.Print("  Device        : %s"%(model));
+    script.Print("  Build number  : %s"%(build));
+    script.Print("  Build date    : %s"%(date));
+    script.Print("************************************************");
 
   recovery_mount_options = OPTIONS.info_dict.get("recovery_mount_options")
 
