@@ -2,8 +2,6 @@
 # List of variables we want to print in the build banner.
 print_build_config_vars := \
   PLATFORM_VERSION \
-  ROM_NAME \
-  ROM_VERSION \
   TARGET_PRODUCT \
   TARGET_BUILD_VARIANT \
   TARGET_ARCH_VARIANT \
