@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     Settings \
     SharedStorageBackup \
     StorageManager \
+    SubstratumService \
     Telecom \
     TeleService \
     VpnDialogs \
@@ -58,6 +59,7 @@ PRODUCT_SYSTEM_SERVER_APPS += \
     FusedLocation \
     InputDevices \
     KeyChain \
+    SubstratumService \
     Telecom \
 
 # The set of packages we want to force 'speed' compilation on.
